@@ -1,0 +1,61 @@
+{% extends 'music/base.html' %}
+{% block title %}Add a New Album{% endblock %}
+{% block albums_active %}active{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+
+    <div class="row">
+
+        <div class="col-sm-12 col-md-7">
+            <div class="panel panel-default" style="opacity:0.5 ; position: absolute; top:75px; left:117px; width:500px; height:270px;">
+                <div class="panel-body" style="background: linear-gradient(rgba(104, 100, 100, 0.4), #0f0e0e 40%);">
+                    <h3><font color="#FFFFFF" face ="Comic Sans MS"><b><center>Add a New Album</center></b></font></h3>
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% include 'music/form_template.html' %}
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="button button1"><font face ="Arial Black"><b>Submit<b></font></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-md-5" style="opacity:0.7 ;">
+            <div class="panel panel-default" style="background: linear-gradient(-45deg, #232323, #261a1a, #dbdbdb, #0a0000);">
+                <div class="heading">
+                    <h1><b><font color="#000" face ="Arial Black"><center>Welcome to Viberr</center></font></b></h1>
+                </div>
+                <div class="panel-body">
+                    <marquee onmouseover="this.stop()" onmouseout="this.start()" scrollamount="4" direction="Up">
+                        <h3><font color="#000" face ="Trebuchet MS">What is Viberr?</font></h3>
+                        <hr noshade>
+                        <p><font color="#FFFFFF" face ="Comic Sans MS">Viberr is an app that allows you to upload and store all of your music on the cloud.</font></p>
+                        <h3><font color="#000" face ="Trebuchet MS">How do I add music?</font></h3>
+                        <hr noshade>
+                        <p><font color="#FFFFFF" face ="Comic Sans MS">First, create a new album by filling out the form on this page. Once an album is created you will be able to add/upload songs.</font></p>
+                        <h3><font color="#000" face ="Trebuchet MS">What are some Album logo best practices?</font></h3>
+                        <hr noshade>
+                        <ul>
+                            <font color="#FFFFFF" face ="Comic Sans MS">
+                                <li>Have a resolution of 512x512</li>
+                                <li>Use common image formats such as .JPG, .GIF, or .PNG</li>
+                                <li>Remain under the 2MB limit.</li>
+                                <li>Square images look best</li>
+                            </font>
+                        </ul>
+                    </marquee>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}
